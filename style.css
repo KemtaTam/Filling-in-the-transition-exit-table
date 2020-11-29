@@ -32,10 +32,10 @@ form{
 }
 .text{
     margin-bottom: 2px;
-    border: 1px dashed grey;
 }
 .input{
     width: 50px;
+    border: 1px dashed grey;
 }
 /*End entering the number of states and input symbols*/
 
