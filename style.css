@@ -1,0 +1,84 @@
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+header{
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+img{
+    display: flex;
+    margin: 20px auto;
+}
+
+form{
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*Start entering the number of states and input symbols*/
+.enter{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.input-states {
+    margin-left: 70px;
+}
+.input-characters {
+    margin-left: 9px;
+}
+.text{
+    margin-bottom: 2px;
+}
+.input{
+    width: 50px;
+}
+/*End entering the number of states and input symbols*/
+
+/*Сделать кнопку подтверждения??*/
+
+.table_header{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.body_table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+table{
+    border: 1px solid black;
+    width: max-content;
+    border-collapse: collapse;
+}
+tr{
+    border: 1px solid black;
+}
+#t_1-1{
+    background-color: #808080FF;
+}
+#t_2-1_3-1{
+    background-color: #F8CBADFF;
+}
+#t_1-2--9{
+    background-color: #D9D9D9FF;
+}
+th{
+    border: 1px solid black;
+}
+.second_row :nth-child(n+1){
+    background-color: #E6FFFAFF;
+}
+.third_row :nth-child(n+1){
+    background-color: #E6FFFAFF;
+}
+.valueOfTable{
+    width: 50px;
+    text-align: center;
+    border: none;
+}

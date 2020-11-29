@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header><b>Заполнение таблицы преходов-выходов</b></header>
+    <img src="images/пример_графа.jpg" alt="graph" />
+
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <!--Start entering the number of states and input symbols-->
+        <div class="enter">
+            <div class="body_enter">
+                <div class="text states">
+                    Состояний: <input class="input input-states" placeholder="0" 
+                                type="number" name="input_states" value="">
+                </div> 
+                <div class="text characters">
+                    Входных символов: <input class="input input-characters" placeholder="0" 
+                                    type="number" name="input_characters" value="">
+                </div>
+            </div>
+        </div>
+        <!--End entering the number of states and input symbols-->
+
+        <div class="table_header">Таблица переходов-выходов</div>
+        <div class="body_table">
+            <table>
+                <tr class="first_row">
+                    <th id="t_1-1">I/S</th>
+                    <th id="t_1-2--9">1</th>
+                    <th id="t_1-2--9">2</th>
+                    <th id="t_1-2--9">3</th>
+                    <th id="t_1-2--9">4</th>
+                    <th id="t_1-2--9">5</th>
+                    <th id="t_1-2--9">6</th>
+                    <th id="t_1-2--9">7</th>
+                    <th id="t_1-2--9">8</th>
+                </tr>
+                <tr class="second_row">
+                    <th id="t_2-1_3-1">a</th>
+                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text"></th>
+                </tr>
+                <tr class="third_row">
+                    <th id="t_2-1_3-1">b</th>
+                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text"></th>
+                </tr>
+            </table>
+        </div>
+
+    </form>
+
+</body>
+</html>
