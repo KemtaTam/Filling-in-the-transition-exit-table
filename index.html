@@ -13,18 +13,19 @@
     <header><b>Заполнение таблицы преходов-выходов</b></header>
     <img src="images/пример_графа.jpg" alt="graph" />
 
-    <form action="/" method="POST" enctype="multipart/form-data">
+    <form action="/" method="GET" enctype="multipart/form-data">
         <!--Start entering the number of states and input symbols-->
         <div class="enter">
             <div class="body_enter">
                 <div class="text states">
-                    Состояний: <input class="input input-states" placeholder="0" 
-                                type="number" name="input_states" value="">
+                    <mark>Состояний:</mark> <input class="input input-states" placeholder="1" 
+                                type="number" name="input_states" value="" min="1" max="20">
                 </div> 
                 <div class="text characters">
-                    Входных символов: <input class="input input-characters" placeholder="0" 
-                                    type="number" name="input_characters" value="">
+                    <mark>Входных символов:</mark> <input class="input input-characters" placeholder="1" 
+                                    type="number" name="input_characters" value="" min="1" max="20">
                 </div>
+                <button type="submit">Подтвердить</button>
             </div>
         </div>
         <!--End entering the number of states and input symbols-->
@@ -33,18 +34,17 @@
         <div class="body_table">
             <table>
                 <tr class="first_row">
-                    <th id="t_1-1">I/S</th>
-                    <th id="t_1-2--9">1</th>
-                    <th id="t_1-2--9">2</th>
-                    <th id="t_1-2--9">3</th>
-                    <th id="t_1-2--9">4</th>
-                    <th id="t_1-2--9">5</th>
-                    <th id="t_1-2--9">6</th>
-                    <th id="t_1-2--9">7</th>
-                    <th id="t_1-2--9">8</th>
-                </tr>
+                    <th class="first_col t_1-1">I/S</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
                 <tr class="second_row">
-                    <th id="t_2-1_3-1">a</th>
+                    <th class="first_col t_2-1">a</th>
                     <th><input class="valueOfTable" type="text"></th>
                     <th><input class="valueOfTable" type="text"></th>
                     <th><input class="valueOfTable" type="text"></th>
@@ -55,7 +55,7 @@
                     <th><input class="valueOfTable" type="text"></th>
                 </tr>
                 <tr class="third_row">
-                    <th id="t_2-1_3-1">b</th>
+                    <th class="first_col t_3-1">b</th>
                     <th><input class="valueOfTable" type="text"></th>
                     <th><input class="valueOfTable" type="text"></th>
                     <th><input class="valueOfTable" type="text"></th>
@@ -66,8 +66,11 @@
                     <th><input class="valueOfTable" type="text"></th>
                 </tr>
             </table>
+            
         </div>
-
+        <div class="body_end_button">
+            <button class="end_button" type="submit">Отправить ответ</button>
+        </div>
     </form>
 
 </body>
