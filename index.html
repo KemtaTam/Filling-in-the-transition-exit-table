@@ -11,7 +11,7 @@
 </head>
 <body>
     <header><b>Заполнение таблицы преходов-выходов</b></header>
-    <img src="images/пример_графа.jpg" alt="graph" />
+    <img src="images/граф.jpg" alt="graph" />
 
     <form action="/" method="GET" enctype="multipart/form-data">
         <!--Start entering the number of states and input symbols-->
@@ -25,7 +25,7 @@
                     <mark>Входных символов:</mark> <input class="input input-characters" placeholder="1" 
                                     type="number" name="input_characters" value="" min="1" max="20">
                 </div>
-                <button type="submit">Подтвердить</button>
+                <button class="enter_button" type="submit">Подтвердить</button>
             </div>
         </div>
         <!--End entering the number of states and input symbols-->
@@ -45,31 +45,31 @@
                     <th>8</th>
                 <tr class="second_row">
                     <th class="first_col t_2-1">a</th>
-                    <th><input class="valueOfTable" type="text"></th>
-                    <th><input class="valueOfTable" type="text"></th>
-                    <th><input class="valueOfTable" type="text"></th>
-                    <th><input class="valueOfTable" type="text"></th>
-                    <th><input class="valueOfTable" type="text"></th>
-                    <th><input class="valueOfTable" type="text"></th>
-                    <th><input class="valueOfTable" type="text"></th>
-                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
                 </tr>
                 <tr class="third_row">
                     <th class="first_col t_3-1">b</th>
-                    <th><input class="valueOfTable" type="text"></th>
-                    <th><input class="valueOfTable" type="text"></th>
-                    <th><input class="valueOfTable" type="text"></th>
-                    <th><input class="valueOfTable" type="text"></th>
-                    <th><input class="valueOfTable" type="text"></th>
-                    <th><input class="valueOfTable" type="text"></th>
-                    <th><input class="valueOfTable" type="text"></th>
-                    <th><input class="valueOfTable" type="text"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
+                    <th><input class="valueOfTable" type="text" placeholder="0/0"></th>
                 </tr>
             </table>
             
         </div>
         <div class="body_end_button">
-            <button class="end_button" type="submit">Отправить ответ</button>
+            <button class="end_button" type="submit" title="Отправить ответ на платформу">Отправить ответ</button>
         </div>
     </form>
 
