@@ -46,13 +46,7 @@ const {form} = document.forms;
         tbody.appendChild(tr);
   
 		
-        /*for(i=0; i<form.input_states.value; i++)
-        {
-        	let th = document.createElement("th");
-			th.textContent = i+1;
-			tr.appendChild(th);
-			//нужно заполнить только первую строчку??
-        }*/
+
       }
   };
   enter_button.onclick = CreateTable;
