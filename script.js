@@ -1,5 +1,13 @@
-const {form} = document.forms;
+  let enter_button = document.getElementsByClassName("enter_button")[0];
+  let tbody = document.getElementsByTagName("tbody")[0];
   
+  let answer = ['2/1', '4/0', '3/1', '3/1', '8/1', '2/0', '8/1', '4/0',
+				'1/0', '7/1', '5/1', '5/0', '6/0', '1/0', '6/1', '7/0']
+	
+  enter_button.onclick = CreateTable;
+
+  //событие нажата кнопка "подтвердить"
+  let form = document.getElementById("form");
   function retrieveFormValue(event) 
   {
 	event.preventDefault();
@@ -19,7 +27,33 @@ const {form} = document.forms;
   }
   form.addEventListener('submit', retrieveFormValue);
 
-  let enter_button = document.getElementsByClassName("enter_button")[0];
+   //событие нажата кнопка "отправить ответ"
+  let tableForm = document.getElementById("tableForm");
+  function retrieveInputValue(event) 
+  {
+	event.preventDefault(); //отправлять на сервер не нужно
+
+	//сравниваю два массива
+	if(isEqual(answer, getUserAnswer())) alert("Correct answer");
+	else if (checkForm(tableForm)) alert("Incorrect answer! Try it again.");
+  }
+  tableForm.addEventListener('submit', retrieveInputValue);
+
+//-----------------------------Всякие функции---------------------------//
+
+//сравнение двух массивов
+  function isEqual(a, b)
+  {
+	  if(a.length != b.length) return false;
+
+	  for(let i=0; i<a.length; i++){
+		  if(a[i] != b[i]) return false;
+	  }
+
+	  return true;
+  }
+
+//создание таблицы
   function CreateTable() 
   {
 	  let tbody = document.getElementsByTagName("tbody")[0];
@@ -62,20 +96,50 @@ const {form} = document.forms;
         {
 			let th = document.createElement("th");
 			let input_value = document.createElement("input");
-			//добавить анимацию?
+
 			input_value.setAttribute('class', 'valueOfTable');
 			input_value.type = "text";
 			input_value.placeholder = '0/0';
+			input_value.name = "input_value";
+			input_value.addEventListener('mouseover', mouseover);
+			input_value.addEventListener('mouseout', mouseout);
+
+			function mouseover(){
+				input_value.style.background = "#ACFFFFFF";
+				input_value.style.transition = "all 0.2s linear 0s";
+			}
+			function mouseout(){
+				input_value.style.background = "#E6FFFAFF";
+				input_value.style.transition = "all 0.5s linear 0s";
+			}
+
 			th.appendChild(input_value);
 			tr.appendChild(th);
 		}
       }
   };
-  enter_button.onclick = CreateTable;
 
-  
+ 
 
-  function checkForm(form){
+//создание массива с ответами пользователя
+function getUserAnswer()
+{
+	let userAnswer = [];
+	let k = 0;
+	for (let i = 0; i < tbody.children.length - 1; i++) 
+	{
+		for (let j = 0; j < tbody.children[i + 1].children.length - 1; j++) 
+		{
+			userAnswer.push(tableForm.elements.input_value[k].value);
+			k++;
+		}
+	}
+	return userAnswer;
+}
+
+  //проверка полей формы на заполненность
+function checkForm(form)
+{
 	let e = 0;
 	for (var i = 0; i < form.length - 1; i++) 
 	{
