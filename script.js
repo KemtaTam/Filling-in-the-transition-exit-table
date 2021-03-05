@@ -1,8 +1,22 @@
   let enter_button = document.getElementsByClassName("enter_button")[0];
   let tbody = document.getElementsByTagName("tbody")[0];
+  let header = document.getElementsByTagName("header")[0];
+
+  let num = getRandomIntInclusive(1, 3);
+
+  let image = document.createElement("img");
+  image.setAttribute("src", "images/" + num + "граф.jpg");
+  header.after(image);
   
-  let answer = ['2/1', '4/0', '3/1', '3/1', '8/1', '2/0', '8/1', '4/0',
-				'1/0', '7/1', '5/1', '5/0', '6/0', '1/0', '6/1', '7/0']
+  answer = {
+	1: ['2/1', '4/0', '3/1', '3/1', '8/1', '2/0', '8/1', '4/0',
+	'1/0', '7/1', '5/1', '5/0', '6/0', '1/0', '6/1', '7/0'],
+	2: ['3/1', '1/0', '1/0', '4/0',
+		'4/1', '3/0', '4/1', '3/1'],
+	3: ['1/0', '2/0', '2/1', '3/1', '3/0', '3/0',
+		'6/1', '4/0', '1/1', '2/0', '1/0', '6/1',
+		'5/0', '6/1', '3/1', '6/1', '6/1', '3/0']
+  };
 	
   enter_button.onclick = CreateTable;
 
@@ -34,7 +48,7 @@
 	event.preventDefault(); //отправлять на сервер не нужно
 
 	//сравниваю два массива
-	if(isEqual(answer, getUserAnswer())) alert("Correct answer");
+	if(isEqual(answer[num], getUserAnswer())) alert("Correct answer");
 	else if (checkForm(tableForm)) alert("Incorrect answer! Try it again.");
   }
   tableForm.addEventListener('submit', retrieveInputValue);
@@ -101,14 +115,25 @@
 			input_value.type = "text";
 			input_value.placeholder = '0/0';
 			input_value.name = "input_value";
+			//анимации
 			input_value.addEventListener('mouseover', mouseover);
 			input_value.addEventListener('mouseout', mouseout);
-
+			input_value.addEventListener('focus', focus);
+			input_value.addEventListener('blur', blur);
+			//функции анимаций
 			function mouseover(){
 				input_value.style.background = "#ACFFFFFF";
-				input_value.style.transition = "all 0.2s linear 0s";
+				input_value.style.transition = "all 0.15s linear 0s";
 			}
 			function mouseout(){
+				input_value.style.background = "#E6FFFAFF";
+				input_value.style.transition = "all 0.8s linear 0s";
+			}
+			function focus(){
+				input_value.style.background = "#08eccef3";
+				input_value.style.transition = "all 0.1s linear 0s";
+			}
+			function blur(){
 				input_value.style.background = "#E6FFFAFF";
 				input_value.style.transition = "all 0.5s linear 0s";
 			}
@@ -119,8 +144,6 @@
       }
   };
 
- 
-
 //создание массива с ответами пользователя
 function getUserAnswer()
 {
@@ -130,12 +153,22 @@ function getUserAnswer()
 	{
 		for (let j = 0; j < tbody.children[i + 1].children.length - 1; j++) 
 		{
-			userAnswer.push(tableForm.elements.input_value[k].value);
+			if((tbody.children.length == 2) && (tbody.children[0].children.length == 2)){
+				userAnswer.push(tableForm.elements.input_value.value);
+			} else {
+				userAnswer.push(tableForm.elements.input_value[k].value);
+			}
 			k++;
 		}
 	}
 	return userAnswer;
 }
+
+function getRandomIntInclusive(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
+  }
 
   //проверка полей формы на заполненность
 function checkForm(form)
