@@ -58,93 +58,97 @@
 //-----------------------------Всякие функции---------------------------//
 
 //сравнение двух массивов
-  function isEqual(a, b)
-  {
-	  if(a.length != b.length) return false;
+function isEqual(a, b) 
+{
+	if (a.length != b.length) return false;
 
-	  for(let i=0; i<a.length; i++){
-		  if(a[i] != b[i]) return false;
-	  }
+	for (let i = 0; i < a.length; i++) {
+		if (a[i] != b[i]) return false;
+	}
 
-	  return true;
-  }
+	return true;
+}
 
 //создание таблицы
-  function CreateTable() 
-  {
-	  let tbody = document.getElementsByTagName("tbody")[0];
-	  
-	  //---------------УДАЛЕНИЕ ранее созданной таблицы----------------
-	  let t = tbody.rows.length;
-	  for(i=0; i<t; i++) {
-		  tbody.deleteRow(0);
-	  }
-	 
-	  //первая строка
-      let tr1 = document.createElement("tr");
-      tr1.setAttribute("class", "first_row");
-      tbody.appendChild(tr1);
-	  //первая ячейка первой строки
-      let th1 = document.createElement("th");
-      th1.setAttribute("class", "first_col t_1-1");
-      th1.textContent = "I/S";
-	  tr1.appendChild(th1);
+function CreateTable() 
+{
+	let tbody = document.getElementsByTagName("tbody")[0];
 
-	  //создание всех ячеек первой строки
-	  for(i=0; i<form.input_states.value; i++)
-	  {
-		  let th = document.createElement("th");
-		  th.textContent = i+1;
-		  tr1.appendChild(th);
-	  }
-	  //создание остальных строк
-	  for (i = 0; i < form.input_characters.value; i++) 
-	  {
-        let tr = document.createElement("tr");
-        tbody.appendChild(tr);
+	//---------------УДАЛЕНИЕ ранее созданной таблицы----------------
+	let t = tbody.rows.length;
+	for (i = 0; i < t; i++) {
+		tbody.deleteRow(0);
+	}
 
+	if (form.input_characters.value > 0 && form.input_states.value > 0 &&
+		form.input_characters.value < 21 && form.input_states.value < 21) 
+	{
+		//первая строка
+		let tr1 = document.createElement("tr");
+		tr1.setAttribute("class", "first_row");
+		tbody.appendChild(tr1);
+		//первая ячейка первой строки
 		let th1 = document.createElement("th");
-		th1.style.background =  "#F8CBADFF";
-		th1.textContent = String.fromCharCode(97 + i);
-		tr.appendChild(th1);
+		th1.setAttribute("class", "first_col t_1-1");
+		th1.textContent = "I/S";
+		tr1.appendChild(th1);
 
-        for(j=0; j<form.input_states.value; j++)
-        {
+		//создание всех ячеек первой строки
+		for (i = 0; i < form.input_states.value; i++) 
+		{
 			let th = document.createElement("th");
-			let input_value = document.createElement("input");
-
-			input_value.setAttribute('class', 'valueOfTable');
-			input_value.type = "text";
-			input_value.placeholder = '0/0';
-			input_value.name = "input_value";
-			//анимации
-			input_value.addEventListener('mouseover', mouseover);
-			input_value.addEventListener('mouseout', mouseout);
-			input_value.addEventListener('focus', focus);
-			input_value.addEventListener('blur', blur);
-			//функции анимаций
-			function mouseover(){
-				input_value.style.background = "#ACFFFFFF";
-				input_value.style.transition = "all 0.15s linear 0s";
-			}
-			function mouseout(){
-				input_value.style.background = "#E6FFFAFF";
-				input_value.style.transition = "all 0.8s linear 0s";
-			}
-			function focus(){
-				input_value.style.background = "#08eccef3";
-				input_value.style.transition = "all 0.1s linear 0s";
-			}
-			function blur(){
-				input_value.style.background = "#E6FFFAFF";
-				input_value.style.transition = "all 0.5s linear 0s";
-			}
-
-			th.appendChild(input_value);
-			tr.appendChild(th);
+			th.textContent = i + 1;
+			tr1.appendChild(th);
 		}
-      }
-  };
+		//создание остальных строк
+		for (i = 0; i < form.input_characters.value; i++)
+		{
+			let tr = document.createElement("tr");
+			tbody.appendChild(tr);
+
+			let th1 = document.createElement("th");
+			th1.style.background = "#F8CBADFF";
+			th1.textContent = String.fromCharCode(97 + i);
+			tr.appendChild(th1);
+
+			for (j = 0; j < form.input_states.value; j++)
+			{
+				let th = document.createElement("th");
+				let input_value = document.createElement("input");
+
+				input_value.setAttribute('class', 'valueOfTable');
+				input_value.type = "text";
+				input_value.placeholder = '0/0';
+				input_value.name = "input_value";
+				//анимации
+				input_value.addEventListener('mouseover', mouseover);
+				input_value.addEventListener('mouseout', mouseout);
+				input_value.addEventListener('focus', focus);
+				input_value.addEventListener('blur', blur);
+				//функции анимаций
+				function mouseover() {
+					input_value.style.background = "#ACFFFFFF";
+					input_value.style.transition = "all 0.15s linear 0s";
+				}
+				function mouseout() {
+					input_value.style.background = "#E6FFFAFF";
+					input_value.style.transition = "all 0.8s linear 0s";
+				}
+				function focus() {
+					input_value.style.background = "#08eccef3";
+					input_value.style.transition = "all 0.1s linear 0s";
+				}
+				function blur() {
+					input_value.style.background = "#E6FFFAFF";
+					input_value.style.transition = "all 0.5s linear 0s";
+				}
+
+				th.appendChild(input_value);
+				tr.appendChild(th);
+			}
+		}
+	}
+};
 
 //создание массива с ответами пользователя
 function getUserAnswer()
@@ -176,6 +180,7 @@ function getRandomIntInclusive(min, max) {
 function checkForm(form)
 {
 	let e = 0;
+	
 	for (var i = 0; i < form.length - 1; i++) 
 	{
 		form[i].style.border = "none";
@@ -185,6 +190,7 @@ function checkForm(form)
 			e = 1;
 		}
 	}
+	
 	if (e) 
 	{
 		alert("Заполните все поля");
