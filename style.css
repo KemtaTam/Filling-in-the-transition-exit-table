@@ -91,22 +91,6 @@ th{
 }
 .third_row :nth-child(n+2){
 	background-color: #E6FFFAFF;
-	/*background-color: #08eccef3;*/
-}
-
-.second_row :hover{
-	background-color: #ACFFFFFF;
-	transition: all 0.2s linear 0s;
-}
-.second_row th:hover:first-child{
-	background-color: #F8CBADFF;
-}
-.third_row :hover{
-	background-color: #ACFFFFFF;
-	transition: all 0.2s linear 0s;
-}
-.third_row th:hover:first-child{
-	background-color: #F8CBADFF;
 }
 
 .valueOfTable{
