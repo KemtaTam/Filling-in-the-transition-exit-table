@@ -11,8 +11,10 @@
   answer = {
 	1: ['2/1', '4/0', '3/1', '3/1', '8/1', '2/0', '8/1', '4/0',
 	'1/0', '7/1', '5/1', '5/0', '6/0', '1/0', '6/1', '7/0'],
+
 	2: ['3/1', '1/0', '1/0', '4/0',
 		'4/1', '3/0', '4/1', '3/1'],
+		
 	3: ['1/0', '2/0', '2/1', '3/1', '3/0', '3/0',
 		'6/1', '4/0', '1/1', '2/0', '1/0', '6/1',
 		'5/0', '6/1', '3/1', '6/1', '6/1', '3/0']
@@ -173,9 +175,13 @@ function getRandomIntInclusive(min, max) {
   //проверка полей формы на заполненность
 function checkForm(form)
 {
+	let input = document.getElementsByClassName("input");
 	let e = 0;
 	for (var i = 0; i < form.length - 1; i++) 
 	{
+		form[i].style.border = "none";
+		input[0].style.border = "1px dashed grey";
+		input[1].style.border = "1px dashed grey";
 		if (!form[i].value.replace(/^\s+|\s+$/g, "")) 
 		{
 			form[i].style.border = "1px solid red";
