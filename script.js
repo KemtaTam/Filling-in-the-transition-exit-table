@@ -175,13 +175,10 @@ function getRandomIntInclusive(min, max) {
   //проверка полей формы на заполненность
 function checkForm(form)
 {
-	let input = document.getElementsByClassName("input");
 	let e = 0;
 	for (var i = 0; i < form.length - 1; i++) 
 	{
 		form[i].style.border = "none";
-		input[0].style.border = "1px dashed grey";
-		input[1].style.border = "1px dashed grey";
 		if (!form[i].value.replace(/^\s+|\s+$/g, "")) 
 		{
 			form[i].style.border = "1px solid red";
