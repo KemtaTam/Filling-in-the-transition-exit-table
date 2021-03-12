@@ -128,15 +128,11 @@ function CreateTable()
 				input_value.name = "input_value";
 				input_value.autocomplete="off";
 
-				//для маски
-				$('.valueOfTable').mask('9/9', {placeholder: " "});
-				
 				//анимации
 				input_value.addEventListener('mouseover', mouseover);
 				input_value.addEventListener('mouseout', mouseout);
 				input_value.addEventListener('focus', focus);
 				input_value.addEventListener('blur', blur);
-				
 				//функции анимаций
 				function mouseover() {
 					input_value.style.background = "#ACFFFFFF";
@@ -155,29 +151,15 @@ function CreateTable()
 				{
 					input_value.style.background = "#E6FFFAFF";
 					input_value.style.transition = "all 0.5s linear 0s";
-					//чтобы подставить '/'
-					let k = 0;
-					for(let i=0; i<tbody.children.length-1; i++)
-					{
-						for(let j=0; j<tbody.children[i+1].children.length-1; j++)
-						{
-							if(tableForm.elements[k].value.length == 2)
-							{
-								let t = tableForm.elements[k].value[0] + '/' + tableForm.elements[k].value[1];
-								tableForm.elements[k].value = t;
-							}
-							k++;
-						}
-					}
 				}
 
 				th.appendChild(input_value);
 				tr.appendChild(th);
 			}
-			//чтобы последняя ячейка тоже была с маской
-			$('.valueOfTable').mask('9/9', {placeholder: " "});
-		}
+		}	
 	}
+	//для маски
+	$('.valueOfTable').mask('9/9', {placeholder: " "});
 };
 
 //создание массива с ответами пользователя
