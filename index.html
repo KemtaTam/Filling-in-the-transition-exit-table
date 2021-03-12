@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+	<title>Document</title>
+</head>
+<body>
+	<header><b>Заполнение таблицы преходов-выходов</b></header>
+	<!-- <img src="images/1граф.jpg" alt="graph" /> -->
+
+	<form action="/" method="GET" enctype="multipart/form-data" id="form">
+		<!--Start entering the number of states and input symbols-->
+		<div class="enter">
+			<div class="body_enter">
+				<div class="text states">
+					<mark>Укажите количество состояний:</mark> <input class="input input-states" placeholder="1" 
+								type="number" name="input_states" value="" min="1" max="20">
+				</div> 
+				<div class="text characters">
+					<mark>Укажите количество входных символов:</mark> 
+					<input class="input input-characters" placeholder="1" type="number" 
+						name="input_characters" value="" min="1" max="20">
+				</div>
+				<button class="enter_button" type="submit">Подтвердить</button>
+			</div>
+		</div>
+		<!--End entering the number of states and input symbols-->
+	</form>
+
+	<form action="/" method="GET" enctype="multipart/form-data" id="tableForm">
+		<div class="table_header">Таблица переходов-выходов</div>
+		<div class="body_table">
+			<table>
+				<tbody>
+				<!-- Здесь сформируется таблица -->
+				</tbody>
+			</table>
+			
+		</div>
+		<div class="body_end_button">
+			<button class="end_button" type="submit" title="Отправить ответ на платформу">Отправить ответ</button>
+		</div>
+	</form>
+
+	<script src="script.js"></script>
+</body>
+</html>
