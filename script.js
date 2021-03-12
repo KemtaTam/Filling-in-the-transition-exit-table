@@ -21,7 +21,6 @@
   };
 	
   enter_button.onclick = CreateTable;
-
   
   //событие нажата кнопка "подтвердить"
   let form = document.getElementById("form");
@@ -128,12 +127,16 @@ function CreateTable()
 				input_value.placeholder = '0/0';
 				input_value.name = "input_value";
 				input_value.autocomplete="off";
-				input_value.pattern = "[0-9]/[0-9]";
+
+				//для маски
+				$('.valueOfTable').mask('9/9', {placeholder: " "});
+				
 				//анимации
 				input_value.addEventListener('mouseover', mouseover);
 				input_value.addEventListener('mouseout', mouseout);
 				input_value.addEventListener('focus', focus);
 				input_value.addEventListener('blur', blur);
+				
 				//функции анимаций
 				function mouseover() {
 					input_value.style.background = "#ACFFFFFF";
@@ -171,6 +174,8 @@ function CreateTable()
 				th.appendChild(input_value);
 				tr.appendChild(th);
 			}
+			//чтобы последняя ячейка тоже была с маской
+			$('.valueOfTable').mask('9/9', {placeholder: " "});
 		}
 	}
 };
@@ -222,3 +227,4 @@ function checkForm(form)
 		return false;
 	} else return true;
 }
+
