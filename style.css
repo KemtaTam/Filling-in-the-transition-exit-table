@@ -128,7 +128,7 @@ th{
 .right_arrow{
 	position: fixed;
 	width: 3%;
-	left: 1%;
+	right: 1%;
 	top: 45%;
 	cursor: pointer;
 }
