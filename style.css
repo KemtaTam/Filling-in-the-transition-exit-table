@@ -3,6 +3,11 @@
 	box-sizing: border-box;
 	background-color: #F1FAEEFF;
 }
+
+body{
+	min-width: 500px;
+}	
+
 header{
 	font-family: 'Raleway', sans-serif;
 	font-size: 18px;
