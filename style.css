@@ -1,0 +1,194 @@
+*{
+	margin: 0; padding: 0;
+	box-sizing: border-box;
+	background-color: #F1FAEEFF;
+}
+
+body{
+	min-width: 500px;
+}
+
+header{
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+img{
+	display: flex;
+	margin: 20px auto;
+	width: 500px;
+}
+
+form{
+	font-family: Arial, Helvetica, sans-serif;
+}
+/*Start entering the number of states and input symbols*/
+.enter{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.input-states {
+	margin-left: 56.5px;
+}
+.input-characters {
+	margin-left: 10px;
+}
+.text{
+	margin-bottom: 2px;
+}
+.input{
+	width: 45px;
+	border: 1px dashed grey;
+}
+mark{
+	background-color: #F1FAEEFF;
+	font-size: 12px;
+}
+.enter_button{
+	padding: 2px;
+	border-radius: 3px; 
+	border: 1px solid grey;
+	background-color: #F4FEF4FF;
+	color: #8E8E8EF3;
+	margin-top: 5px;
+	margin-left: 100px;
+}
+/*End entering the number of states and input symbols*/
+
+/*------------Table start------------*/
+.table_header{
+	justify-content: center;
+	margin-top: 20px;
+	display: none; /*потом измениться на flex*/
+}
+.body_table{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 5px;
+}
+table{
+	border: 1px solid black;
+	width: max-content;
+	border-collapse: collapse;
+}
+
+tr{
+	border: 1px solid black;
+}
+th{
+	border: 1px solid black;
+}
+
+.first_col{width: 40px;}
+.t_1-1{background-color: #808080FF;}
+.t_2-1{background-color: #F8CBADFF;}
+.t_3-1{background-color: #F8CBADFF;}
+
+.first_row :nth-child(n+2){
+	background-color: #D9D9D9FF;
+}
+.second_row :nth-child(n+2){
+	background-color: #E6FFFAFF;
+}
+.third_row :nth-child(n+2){
+	background-color: #E6FFFAFF;
+}
+
+.valueOfTable{
+	width: 50px;
+	height: 20px;
+	text-align: center;
+	border: none;
+	background-color: #E6FFFAFF;
+}
+/*------------Table end------------*/
+
+.body_end_button{
+	/*display: flex;*/
+	display: none;
+	justify-content: center;
+	margin-top: 20px;
+}
+.end_button{
+	padding: 5px;
+	border-radius: 5px; 
+	border: 2px solid #E0EAEAFF;
+	background-color: #F4FEF4FF;
+	color: #8E8E8EF3;
+	font-size: 16px;
+	cursor: pointer;
+	transition: 1s;
+}
+.end_button:hover{
+	background-color: rgb(233, 233, 233);
+	transition: 0.2s;
+	font-size: 16.5px;
+}
+
+.pop-up1{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(255, 255, 255, 0.150);
+	display: none;
+}
+.pop-up2{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(255, 255, 255, 0.150);
+	display: none;
+}
+
+.body_pop-up{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    padding: 20px;
+    min-width: 250px;
+    transition: all 0.8s ease 0s;
+    background-color: rgba(255, 255, 255, 0.150);
+}
+
+.text1{
+    background: linear-gradient(to bottom, rgba(0, 251, 0, 0.616), #008D00FF);
+    width: 450px;
+    padding: 20px;
+}
+.text2{
+    background: linear-gradient(to bottom, rgba(251, 17, 0, 0.616), rgb(141, 0, 0));
+    width: 500px;
+    padding: 20px;
+}
+
+.modals_header{
+    display: flex;
+    justify-content: center;
+	background-color: inherit;
+}
+
+.bOk{
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	background-color: inherit;
+	height: 60px;
+}
+.butOk{
+	width: 70px;
+	height: 35px;
+	border-radius: 5px;
+	background-color: #8AB4F8;
+	font-weight: 550;
+}
