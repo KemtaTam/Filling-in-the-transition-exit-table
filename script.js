@@ -21,7 +21,7 @@
   };
 	
   enter_button.onclick = CreateTable;
-  
+
   //событие нажата кнопка "подтвердить"
   let form = document.getElementById("form");
   function retrieveFormValue(event) 
@@ -49,6 +49,12 @@
   }
   form.addEventListener('submit', retrieveFormValue);
 
+  let popup1 = document.getElementsByClassName("pop-up1")[0];
+  let popup2 = document.getElementsByClassName("pop-up2")[0];
+  let end_button = document.getElementsByClassName("end_button")[0];
+  let bOk1 = document.getElementById("bOk1");
+  let bOk2 = document.getElementById("bOk2");
+
    //событие нажата кнопка "отправить ответ"
   let tableForm = document.getElementById("tableForm");
   function retrieveInputValue(event) 
@@ -56,10 +62,12 @@
 	event.preventDefault(); //отправлять на сервер не нужно
 
 	//сравниваю два массива
-	if(isEqual(answer[num], getUserAnswer())) alert("Correct answer");
-	else if (checkForm(tableForm)) alert("Incorrect answer! Try it again.");
+	if(isEqual(answer[num], getUserAnswer())) popup1.style.display = "block";
+	else if (checkForm(tableForm)) popup2.style.display = "block";;
   }
   tableForm.addEventListener('submit', retrieveInputValue);
+bOk1.onclick = function(){popup1.style.display = "none";}
+bOk2.onclick = function(){popup2.style.display = "none";}
 
 //-----------------------------Всякие функции---------------------------//
 
