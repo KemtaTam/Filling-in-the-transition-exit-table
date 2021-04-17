@@ -5,7 +5,10 @@
   let num = getRandomIntInclusive(1, 3);
 
   let image = document.createElement("img");
-  image.setAttribute("src", "images/" + num + "граф.jpg");
+  image.setAttribute("src", "images/" + num + "граф.svg");
+  if(num == 2){
+	  image.style.width = "300px";
+  }
   header.after(image);
   
   answer = {
