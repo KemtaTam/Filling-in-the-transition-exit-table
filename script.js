@@ -2,7 +2,7 @@
   let tbody = document.getElementsByTagName("tbody")[0];
   let header = document.getElementsByTagName("header")[0];
 
-  let num = getRandomIntInclusive(1, 3);
+  let num = getRandomIntInclusive(1, 3);	//описать?
 
   let image = document.createElement("img");
   image.setAttribute("src", "images/" + num + "граф.svg");
@@ -11,7 +11,7 @@
   }
   header.after(image);
   
-  answer = {
+  answer = { 
 	1: ['2/1', '4/0', '3/1', '3/1', '8/1', '2/0', '8/1', '4/0',
 		'1/0', '7/1', '5/1', '5/0', '6/0', '1/0', '6/1', '7/0'],
 
@@ -23,25 +23,14 @@
 		'5/0', '6/1', '3/1', '6/1', '6/1', '3/0']
   };
 	
-  enter_button.onclick = CreateTable;
+enter_button.onclick = CreateTable;
+let valueOfTable = document.getElementsByClassName('valueOfTable');
 
   //событие нажата кнопка "подтвердить"
-  let form = document.getElementById("form");
-  function retrieveFormValue(event) 
-  {
+let form = document.getElementById("form");
+function retrieveFormValue(event) 
+{
 	event.preventDefault();
-	
-	const {
-	  input_states,
-	  input_characters
-	} = form;
-  
-	const values = {
-	  states: input_states.value,
-	  characters: input_characters.value,
-	};
-  
-	console.log(values);
 
 	let table_header = document.getElementsByClassName("table_header")[0];
 	let endButton = document.getElementsByClassName("body_end_button")[0];
@@ -49,8 +38,12 @@
 		table_header.style.display = "flex";
 		endButton.style.display = "flex";
 	}
-  }
-  form.addEventListener('submit', retrieveFormValue);
+
+	for(let i=0; i<valueOfTable.length; i++){
+		valueOfTable[i].onkeydown = changeFocus;
+	}
+}
+form.addEventListener('submit', retrieveFormValue);
 
   let popup1 = document.getElementsByClassName("pop-up1")[0];
   let popup2 = document.getElementsByClassName("pop-up2")[0];
@@ -170,7 +163,7 @@ function CreateTable()
 		}	
 	}
 	//для маски
-	$('.valueOfTable').mask('9/9', {placeholder: " "});
+	$('.valueOfTable').mask('9/9', {placeholder: "_"});
 };
 
 //создание массива с ответами пользователя
@@ -197,7 +190,7 @@ function getRandomIntInclusive(min, max) {
 	min = Math.ceil(min);
 	max = Math.floor(max);
 	return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
-  }
+}
 
   //проверка полей формы на заполненность
 function checkForm(form)
@@ -219,5 +212,39 @@ function checkForm(form)
 		alert("Заполните все поля");
 		return false;
 	} else return true;
+}
+
+//переход по таблице с помощью стрелок
+function changeFocus(e) 
+{
+	let text = e.code 
+	curFocus = document.activeElement;
+
+	for(let i=0; i<valueOfTable.length; i++)
+	{
+		if(valueOfTable[i] == curFocus)
+		{
+			if(text == 'ArrowRight'){
+				if(i != valueOfTable.length-1) valueOfTable[i+1].focus();
+				else(valueOfTable[0].focus());
+				break;
+			}
+			else if(text == 'ArrowLeft'){
+				if(i != 0) valueOfTable[i-1].focus();
+				else(valueOfTable[valueOfTable.length-1].focus());
+				break;
+			}
+			else if(text == 'ArrowDown'){
+				if(i < valueOfTable.length - form.input_states.value) 
+					valueOfTable[i+Number(form.input_states.value)].focus();
+				break;
+			}
+			else if(text == 'ArrowUp'){
+				if(i > form.input_states.value-1) 
+					valueOfTable[i-form.input_states.value].focus();
+				break;
+			}
+		}
+	}
 }
 
